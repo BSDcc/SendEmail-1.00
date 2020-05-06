@@ -1,15 +1,15 @@
-//===========================================================================
+//==============================================================================
 // Program ID...: SendEmail
 // Author.......: Francois De Bruin Meyer
 // Copyright....: BlueCrane Software Development CC
 // Date.........: 06 May 2020
-//---------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // Description..: Command line program to send an email with attachments
-//===========================================================================
+//==============================================================================
 
-//---------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // Entry Point
-//---------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 program SendEmail;
 
 {$MODE Delphi}
@@ -17,78 +17,32 @@ program SendEmail;
 //{$APPTYPE GUI}
 
 uses
-  LCLIntf, LCLType, LMessages, Messages, Registry, Forms, Dialogs, Interfaces,
-  SysUtils, SMTPSend, MimeMess, MimePart, SynaUtil, Classes;
+   Forms, Dialogs, Interfaces, SysUtils, SMTPSend, MimeMess, MimePart,
+   SynaUtil, Classes;
 
-//-----------------------------------------------------------------------------
-// Variable Definitions
-//-----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Function to use MIME to send an email
+//------------------------------------------------------------------------------
+function DoMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean;
 var
-
    idx          : integer;     // Used for adding attachments
-   NumParms     : integer;     // Number of Parameters passed
+   NumErrors    : integer;     // Keesp track whether there were errors during send
 
    SendResult   : boolean;     // Result returned by the SMTP send function
 
-   ToStr        : string;      // To addresses
-   CcStr        : string;      // Cc addresses
-   BccStr       : string;      // Bcc addresses
-   Subject      : string;      // Email Subject
-   Body         : string;      // Body of the email
-   Attach       : string;      // Delimited string containing files to be attached
-   SMTPStr      : string;      // Delimited string containing the SMTP parameters
-   Sender       : string;      // Email address of the Sender
    SMTPHost     : string;      // SMTP Host name
    SMTPUser     : string;      // SMTP User name
    SMTPPasswd   : string;      // SMTP Password
-   ToList       : string;      // Final To address list
-   CcList       : string;      // Final Cc address list
-   AddrList     : string;      // Holds addresses that the SMTP server must send to
    AddrId       : string;      // Holds an extracted email address
-   ThisList     : string;      // Used in the transformation of the address lists
+   ThisStr      : string;      // Used in the transformation of the address lists
 
-   AttachList   : TStringList; // Final list of attahcments
    SMTPParms    : TStringList; // Final list of SMTP parameters
-   Content      : TStringList; // Final string list containing the body of the ema il
+   Content      : TStringList; // Final string list containing the body of the email
+   AttachList   : TStringList; // Final list of attahcments
    Mime         : TMimeMess;   // Mail message in MIME format
    MimePtr      : TMimePart;   // Pointer to the MIME messsage being constructed
 
 begin
-
-//---------------------------------------------------------------------------//
-// Parameters passed on the command line:                                    //
-//  Parameter  1  = ToStr                                                    //
-//  Parameter  2  = CcStr                                                    //
-//  Parameter  3  = BccStr                                                   //
-//  Parameter  4  = Subject                                                  //
-//  Parameter  5  = Content                                                  //
-//  Parameter  6  = List of attachments                                      //
-//  Parameter  7  = SMTP Parameters                                          //
-//  Parameter  8  = From address                                             //
-//---------------------------------------------------------------------------//
-
-//--- Check whether the correct number of parameters were passed
-
-   NumParms := ParamCount;
-
-//--- Verify the number of parameters
-
-   if (NumParms <> 8) then begin
-      MessageDlg('Invalid use of SendMail - RC = ' + IntToStr(NumParms), mtWarning, [mbOK], 0);
-      Application.Terminate;
-      Exit;
-   end;
-
-//--- Transfer the Parameters
-
-   ToStr    := ParamStr(1);
-   CcStr    := ParamStr(2);
-   BccStr   := ParamStr(3);
-   Subject  := ParamStr(4);
-   Body     := ParamStr(5);
-   Attach   := ParamStr(6);
-   SMTPStr  := ParamStr(7);
-   Sender   := ParamStr(8);
 
 //--- Extract the SMTP Parameters
 
@@ -109,105 +63,174 @@ begin
    Content := TStringList.Create;
    ExtractStrings(['|'],['*'],PChar(Body),Content);
 
-//--- Send the email
+   Mime := TMimeMess.Create;
 
-   if (Attachlist.Count > 0) then begin
+   try
 
-      Mime := TMimeMess.Create;
+//--- Set the headers. The various address lists (To, Cc and Bcc) can contain
+//--- more than 1 address but these must be seperted by commas and there should
+//--- be no spaces between addresses. The Bcc address list is not added to the
+//--- Header as the data in the Header is not used to determine who to send the
+//--- email to.
 
-      try
+      ThisStr := ToStr;
 
-// Set the headers. The various address lists (To, Cc and Bcc) can contain more
-// than 1 address but these must be seperted by commas and there should be no
-// spaces between addresses. The Bcc address list is not added to the Header.
+      repeat
 
-         ThisList := ToStr;
+         AddrId := Trim(FetchEx(ThisStr, ',', '"'));
 
-         repeat
+         if AddrId <> '' then
+            Mime.Header.ToList.Append(AddrId);
 
-            ToList := Trim( FetchEx( ThisList, ',', '"' ) );
+      until ThisStr = '';
 
-            if ( ToList <> '' ) then
-               Mime.Header.ToList.Append(ToList);
+      ThisStr := CcStr;
 
-         until ThisList = '';
+      repeat
 
-         ThisList := CcStr;
+         AddrId := Trim(FetchEx(ThisStr, ',', '"'));
 
-         repeat
+         if AddrId <> '' then
+            Mime.Header.CCList.Append(AddrId);
 
-            CcList := Trim( FetchEx( ThisList, ',', '"' ) );
+      until ThisStr = '';
 
-            if ( CcList <> '' ) then
-               Mime.Header.CCList.Append(CcList);
+      Mime.Header.Subject := Subject;
+      Mime.Header.From    := From;
+      Mime.Header.ReplyTo := From;
 
-         until ThisList = '';
+//--- Create a MultiPart part
 
-         AddrList := '';
-         ThisList := ToStr + ',' + CcStr + ',' + BccStr;
+      MimePtr := Mime.AddPartMultipart('mixed',Nil);
 
-         repeat
+//--- Add the mail text as the first part
 
-            AddrId := Trim( FetchEx( ThisList, ',', '"' ) );
+      Mime.AddPartText(Content,MimePtr);
 
-            if ( AddrId <> '' ) then
-               AddrList := AddrList + ',' + AddrId;
+//--- Add all atachments
 
-         until ThisList = '';
-
-         Mime.Header.Subject     := Subject;
-         Mime.Header.From        := Sender;
-
-// Create a MultiPart part
-
-         MimePtr := Mime.AddPartMultipart('mixed',Nil);
-
-// Add the mail text as the first part
-
-         Mime.AddPartText(Content,MimePtr);
-
-// Add all atachments
+      if AttachList.Count > 0 then begin
 
          for idx := 0 to AttachList.Count - 1 do
             Mime.AddPartBinaryFromFile(AttachList[idx],MimePtr);
 
-// Compose the message to comply with MIME requirements
-
-         Mime.EncodeMessage;
-
-         Mime;
-
-// Now the messsage can be sent using SendToRaw
-
-         SendResult := SendToRaw(Sender, ToStr, SMTPHost, Mime.Lines, SMTPUser, SMTPPasswd);
-
-         if SendResult = False then
-            MessageDlg('Email message could not be sent', mtWarning, [mbOK], 0)
-         else
-            MessageDlg('Email message successfully sent', mtWarning, [mbOK], 0)
-
-      finally
-         Mime.Free;
-      end;
-      finally
       end;
 
-   end else begin
+//--- Compose the message to comply with MIME requirements
 
-      SendResult := SendToEx(Sender, ToStr, Subject, SMTPHost, Content, SMTPUser, SMTPPasswd);
+      Mime.EncodeMessage;
 
-      if SendResult = False then
-         MessageDlg('Email message could not be sent', mtWarning, [mbOK], 0)
-      else
-         MessageDlg('Email message successfully sent', mtWarning, [mbOK], 0)
+//--- Now the messsage can be sent to each of the recipients (To, Cc and Bcc)
+//--- using SendToRaw
 
+      NumErrors := 0;
+      ThisStr  := ToStr + ',' + CcStr + ',' + BccStr;
+
+      repeat
+
+         AddrId := Trim(FetchEx( ThisStr, ',', '"'));
+
+         if AddrId <> '' then begin
+            SendResult := SendToRaw(From, AddrId, SMTPHost, Mime.Lines, SMTPUser, SMTPPasswd);
+
+            if SendResult = False then
+               Inc(NumErrors);
+
+         end;
+
+      until ThisStr = '';
+
+   finally
+      Mime.Free;
    end;
+
 
 //--- Delete the lists we used
 
-   Content.Free;
    AttachList.Free;
    SMTPParms.Free;
+   Content.Free;
+
+  if NumErrors > 0 then
+     Result := False
+  else
+     Result := True;
+
+end;
+
+//------------------------------------------------------------------------------
+// Entry Point
+//------------------------------------------------------------------------------
+// Parameters passed on the command line:
+//  Parameter  1  = ToStr - List of To email addresses separared by ','                                                    //
+//  Parameter  2  = CcStr - List of Cc email addresses separated by ','
+//  Parameter  3  = BccStr - List of Bcc email addresses separaetd by ','
+//  Parameter  4  = Subject - Subject line of the Email
+//  Parameter  5  = Content - Body of the email, each line separated by '|'
+//  Parameter  6  = List of attachments - Full file names separated by '|'
+//  Parameter  7  = SMTP Parameters - Host, User, Password separated by '|'
+//  Parameter  8  = From address - Email address of the sender
+//  Parameter  9  = Info Message: Silent = 0, Display = 1
+//------------------------------------------------------------------------------
+var
+
+   NumParms     : integer;     // Number of Parameters passed
+
+   SendResult   : boolean;     // Receives the result of the send attempt
+   ShowResult   : boolean;     // Conbtrols whether a success/failure message is shown
+
+   ToStr        : string;      // To addresses
+   CcStr        : string;      // Cc addresses
+   BccStr       : string;      // Bcc addresses
+   Subject      : string;      // Email Subject
+   Body         : string;      // Body of the email
+   Attach       : string;      // Delimited string containing files to be attached
+   SMTPStr      : string;      // Delimited string containing the SMTP parameters
+   From         : string;      // Email address of the Sender
+
+begin
+
+//--- Check whether the correct number of parameters were passed
+
+   NumParms := ParamCount;
+
+//--- Verify the number of parameters
+
+   if (NumParms <> 9) then begin
+      MessageDlg('Invalid use of SendMail - RC = ' + IntToStr(NumParms), mtWarning, [mbOK], 0);
+      Application.Terminate;
+      Exit;
+   end;
+
+//--- Transfer the Parameters
+
+   ToStr      := ParamStr(1);
+   CcStr      := ParamStr(2);
+   BccStr     := ParamStr(3);
+   Subject    := ParamStr(4);
+   Body       := ParamStr(5);
+   Attach     := ParamStr(6);
+   SMTPStr    := ParamStr(7);
+   From       := ParamStr(8);
+   ShowResult := ParamStr(9).ToBoolean();
+
+//--- Send the email
+
+   SendResult := DoMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr);
+
+   if ShowResult = True then begin
+
+      if SendResult = False then
+         MessageDlg('Email message failed to send!', mtWarning, [mbOK], 0)
+      else
+         MessageDlg('Email message successfully sent.', mtInformation, [mbOK], 0)
+
+   end;
+
+   if SendResult = True then
+      System.ExitCode := 0
+   else
+      System.ExitCode := 1;
 
    Application.Terminate;
    Exit;
