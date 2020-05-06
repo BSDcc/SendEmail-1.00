@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="14">
+      <Unit0>
+        <Filename Value="SendEmail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="182"/>
+        <CursorPos Y="158"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Core/IdTCPClient.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Core/IdTCPConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdAttachmentFile.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdExplicitTLSClientServerBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdMessageClient.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdMessageCoderMIME.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdMessageCoder.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdMessage.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdSMTPBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/Protocols/IdSMTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/System/IdBaseComponent.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../../.lazarus/onlinepackagemanager/packages/Indy10/System/IdComponent.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="19"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="../LPMS_Backup_Manager-3.02/Source/ldbackuptemplate.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="70"/>
+        <UsageCount Value="15"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit13>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="133" TopLine="118"/>
+      </Position1>
+      <Position2>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="135" TopLine="119"/>
+      </Position2>
+      <Position3>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="139" TopLine="129"/>
+      </Position3>
+      <Position4>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="141" TopLine="129"/>
+      </Position4>
+      <Position5>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="142" TopLine="129"/>
+      </Position5>
+      <Position6>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="144" TopLine="129"/>
+      </Position6>
+      <Position7>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="146" TopLine="130"/>
+      </Position7>
+      <Position8>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="147" TopLine="131"/>
+      </Position8>
+      <Position9>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="151" TopLine="141"/>
+      </Position9>
+      <Position10>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="153" TopLine="141"/>
+      </Position10>
+      <Position11>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="154" TopLine="141"/>
+      </Position11>
+      <Position12>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position12>
+      <Position13>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="151" TopLine="141"/>
+      </Position13>
+      <Position14>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="153" TopLine="141"/>
+      </Position14>
+      <Position15>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="154" TopLine="141"/>
+      </Position15>
+      <Position16>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position16>
+      <Position17>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="151" TopLine="141"/>
+      </Position17>
+      <Position18>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="153" TopLine="141"/>
+      </Position18>
+      <Position19>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position19>
+      <Position20>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="158" TopLine="142"/>
+      </Position20>
+      <Position21>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="159" TopLine="143"/>
+      </Position21>
+      <Position22>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="163" TopLine="153"/>
+      </Position22>
+      <Position23>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="171" TopLine="155"/>
+      </Position23>
+      <Position24>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="172" TopLine="156"/>
+      </Position24>
+      <Position25>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="171" TopLine="156"/>
+      </Position25>
+      <Position26>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="172" TopLine="156"/>
+      </Position26>
+      <Position27>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="171" TopLine="156"/>
+      </Position27>
+      <Position28>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="180" TopLine="166"/>
+      </Position28>
+      <Position29>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="114" TopLine="104"/>
+      </Position29>
+      <Position30>
+        <Filename Value="SendEmail.pas"/>
+        <Caret Line="171" TopLine="161"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1" ActiveMode="default">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="&quot;dev@fdm.me&quot; &quot;francois@meyerattorneys.co.za&quot; &quot; &quot; &quot;IN RE: &quot; &quot;06 May 2020| |Our Reference:   GN0038/C/FM|Your Reference:| |Dear Sirs,| |Please see enclosed for your kind attention| |Sincerely|Francois Meyer Snr&quot; &quot;/home/francois/Development/SendEmail-1.00/EmailParms.txt|/home/francois/Development/SendEmail-1.00/EmailParms.txt&quot; &quot;mail.fdm.me|dev@fdm.me|Isidra01a#&quot; &quot;francois@meyerattorneys.co.za&quot;"/>
+          </local>
+        </Mode0>
+      </Modes>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="SendEmail.pas"/>
+        <Line Value="182"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
