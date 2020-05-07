@@ -1,0 +1,32 @@
+object FclOptShow: TFclOptShow
+  Left = 607
+  Height = 240
+  Top = 241
+  Width = 320
+  Caption = 'FclOptShow'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnShow = FormShow
+  LCLVersion = '2.0.6.0'
+  object lv1: TListView
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    Columns = <    
+      item
+        Caption = 'Parameter'
+        Width = 100
+      end    
+      item
+        Caption = 'Value'
+      end    
+      item
+        Width = 153
+      end>
+    GridLines = True
+    TabOrder = 0
+    ViewStyle = vsReport
+  end
+end
