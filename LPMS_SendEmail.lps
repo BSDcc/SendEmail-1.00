@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Debug"/>
+    <Units Count="5">
+      <Unit0>
+        <Filename Value="LPMS_SendEmail.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="13"/>
+        <UsageCount Value="20"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="ldSendEmail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FldSendEmail"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="206"/>
+        <CursorPos X="4" Y="224"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="/usr/share/lazarus/2.0.6/lcl/include/listitem.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="521"/>
+        <CursorPos Y="533"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../LPMS_ACM-2.01/lpms_login.pas"/>
+        <UnitName Value="LPMS_Login"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos X="49" Y="248"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../LPMS_ACM-2.01/lpms_main.pas"/>
+        <UnitName Value="LPMS_Main"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit4>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="120" TopLine="107"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="123" TopLine="107"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="126" TopLine="107"/>
+      </Position3>
+      <Position4>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="129" TopLine="110"/>
+      </Position4>
+      <Position5>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="130" TopLine="111"/>
+      </Position5>
+      <Position6>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="132" TopLine="113"/>
+      </Position6>
+      <Position7>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="135" TopLine="116"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="138" TopLine="119"/>
+      </Position8>
+      <Position9>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="118" TopLine="107"/>
+      </Position9>
+      <Position10>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="120" TopLine="107"/>
+      </Position10>
+      <Position11>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="123" TopLine="107"/>
+      </Position11>
+      <Position12>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="126" TopLine="107"/>
+      </Position12>
+      <Position13>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="129" TopLine="110"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="132" TopLine="113"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="135" TopLine="116"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="136" TopLine="117"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="138" TopLine="119"/>
+      </Position17>
+      <Position18>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="118" TopLine="107"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="146" TopLine="135"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="101" TopLine="89"/>
+      </Position20>
+      <Position21>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="146" Column="3" TopLine="138"/>
+      </Position21>
+      <Position22>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="147" TopLine="138"/>
+      </Position22>
+      <Position23>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="63" TopLine="51"/>
+      </Position23>
+      <Position24>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="143" TopLine="132"/>
+      </Position24>
+      <Position25>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="209" Column="64" TopLine="193"/>
+      </Position25>
+      <Position26>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="194" Column="12" TopLine="183"/>
+      </Position26>
+      <Position27>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="195" Column="42" TopLine="184"/>
+      </Position27>
+      <Position28>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="260" Column="37" TopLine="249"/>
+      </Position28>
+      <Position29>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="214" Column="7" TopLine="198"/>
+      </Position29>
+      <Position30>
+        <Filename Value="ldSendEmail.pas"/>
+        <Caret Line="173" Column="33" TopLine="164"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1" ActiveMode="default">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="-F&quot;BSD Send Email Utility&quot; -A&quot;/home/francois/testfile.txt&quot; -P&quot;mail.bluecrane.cc|registrations@bluecrane.cc|Isidra01a#&quot; -E&quot;Hi| |This is the email| |Kind Regards|Francois&quot; -T&quot;dev@fdm.me, francois@bluecrane.cc&quot; -C&quot;f@fdm.me&quot; -B&quot;francois@meyerattorneys.co.za&quot; -S&quot;This is a teste email&quot;"/>
+          </local>
+        </Mode0>
+      </Modes>
+    </RunParams>
+  </ProjectSession>
+  <SkipCheckLCLInterfaces Value="True"/>
+</CONFIG>
