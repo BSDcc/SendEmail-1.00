@@ -62,14 +62,11 @@ private  { Private declarations }
    SMTPParms     : string;        // '|' Delimited list of SMTP Parameters - Host, User and Password
    StrAttachLst  : string;        // '|' Delimited list of attachments
    StrEmailBody  : string;        // '|' Delimited content lines of the email
+   StrFrom       : string;        // From email address
    StrTo         : string;        // Comma delimited list of 'To' recipients
    StrCc         : string;        // Comma delimited list of 'Cc' recipients
    StrBcc        : string;        // Comma delimited list of 'Bcc' recipients
    StrSubject    : string;        // Subject line of the email
-   SMTPHost      : string;        // Extracted SMTP Hostname
-   SMTPUser      : string;        // Extracted SMTP User ID
-   SMTPPass      : string;        // Extracted SMTP Password
-
 
 public   { Public declarations }
 
@@ -81,10 +78,17 @@ end;
 var
    FldSendEmail: TFldSendEmail;
 
+{$IFDEF DARWIN}
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities.dylib';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities.dylib';
+{$ENDIF}
+{$IFDEF LINUX}
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities.so';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities.so';
+{$ENDIF}
 {$IFDEF WINDOWS}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'BSD_Utilities';
-{$ELSE}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities';
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'BSD_Utilities.dll';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'BSD_Utilities.dll';
 {$ENDIF}
 
 implementation
@@ -105,6 +109,10 @@ begin
 
    try
 
+//--- Params is modified by the DLL and as such will be freed/destroyed by
+//--- the DLL. If it is freed here then it will result in an error when the DLL
+//--- tries to free the allocated memory
+
       Params  := TStringList.Create;
       Args    := TStringList.Create;
 
@@ -113,7 +121,7 @@ begin
 
 //--- Call and execute the cmdlOptions function in the BSD_Utilities DLL
 
-      NumParms := cmdlOptions('F:P:A:B:E:T:C:S:f:p:a:b:e:t:c:s:', Args, Params);
+      NumParms := cmdlOptions('F:P:A:B:E:T:C:S:O:f:p:a:b:e:t:c:s:o:', Args, Params);
 
       if NumParms > 0 then begin
 
@@ -146,6 +154,9 @@ begin
             if ((Params.Strings[idx] = 'S') or (Params.Strings[idx] = 's')) then
                StrSubject := Params.Strings[idx + 1];
 
+            if ((Params.Strings[idx] = 'O') or (Params.Strings[idx] = 'o')) then
+               StrFrom := Params.Strings[idx + 1];
+
             idx := idx + 2;
 
          end;
@@ -154,7 +165,6 @@ begin
 
    finally
 
-//      Params.Free;
       Args.Free;
 
    end;
@@ -166,10 +176,9 @@ end;
 //------------------------------------------------------------------------------
 procedure TFldSendEmail. FormShow( Sender: TObject);
 var
-   idx          : integer;
-   SMTPParams   : TStringList;  // Final list of SMTP parameters
-   AttachList   : TStringList;  // Final list of attahcments
-   ThisItem     : TListItem;    // Used for adding attachements to the Attachment ListView
+   idx         : integer;
+   AttachList  : TStringList;  // Final list of attahcments
+   ThisItem    : TListItem;    // Used for adding attachements to the Attachment ListView
 
 begin
 
@@ -189,15 +198,6 @@ begin
 
    if Trim(StrSubject) <> '' then
       edtSubject.Text := StrSubject;
-
-//--- Extract the SMTP Parameters
-
-   SMTPParams := TStringList.Create;
-   ExtractStrings(['|'],[' '],PChar(SMTPParms),SMTPParams);
-
-   SMTPHost := SMTPParams.Strings[0];
-   SMTPUser := SMTPParams.Strings[1];
-   SMTPPass := SMTPParams.Strings[2];
 
 //--- Extract the List of files to be attached
 
@@ -219,7 +219,6 @@ begin
 
 //--- Clean up
 
-   SMTPParams.Free;
    AttachList.Free;
 
 end;
@@ -244,7 +243,39 @@ var
 
 begin
 
-//--- Package the Attachments
+//--- Do some basic checking of required fields before sending
+
+   if ((Trim(edtTo.Text) = '') and (Trim(edtCc.Text) = '') and (Trim(edtBcc.Text) = '')) then begin
+
+      Application.MessageBox('At least 1 of ''To:'', ''Cc:'' or ''Bcc:'' must be specified.','BSD Send Email',(MB_OK + MB_ICONWARNING));
+      edtTo.SetFocus;
+      Exit;
+
+   end;
+
+   if Trim(edtSubject.Text) = '' then begin
+
+      if Application.MessageBox('Note: ''Subject:'' is empty. You can: ' + #10 + #10 + #10 + 'Click [Ok] to proceed with an empty subject line; or' + #10 + #10 + 'Click [Cancel] to return.','BSD Send Email',(MB_OKCANCEL + MB_ICONWARNING)) = ID_CANCEL then begin
+
+         edtSubject.SetFocus;
+         Exit;
+
+      end;
+
+   end;
+
+   if edtBody.Lines.Count = 0 then begin
+
+      if Application.MessageBox('Note: Email text is empty. You can: ' + #10 + #10 + #10 + 'Click [Ok] to proceed with an empty Email; or' + #10 + #10 + 'Click [Cancel] to return.','BSD Send Email',(MB_OKCANCEL + MB_ICONWARNING)) = ID_CANCEL then begin
+
+         edtBody.SetFocus;
+         Exit;
+
+      end;
+
+   end;
+
+//--- Package the Attachments. Only files that actually exist are added
 
    if lvAttachments.Items.Count > 0 then begin
 
@@ -253,7 +284,7 @@ begin
 
       for idx := 0 to lvAttachments.Items.Count - 1 do begin
 
-         if lvAttachments.Items.Item[idx].Caption <> '' then
+         if FileExists(lvAttachments.Items.Item[idx].Caption) = True then
             AttachList := AttachList + Delimiter + lvAttachments.Items.Item[idx].Caption;
 
          Delimiter := '|';
@@ -282,7 +313,16 @@ begin
 
    end;
 
-   btnCancelClick(Sender);
+//--- Send the email
+
+   if SendMimeMail(StrFrom, edtTo.Text, edtCc.Text, edtBcc.Text, edtSubject.Text, Body, AttachList, SMTPParms) = False then
+      Application.MessageBox('Sending Email failed! Please check Email set-up details.','BSD Send Email',(MB_OK + MB_ICONSTOP))
+   else begin
+
+      Application.MessageBox('Send Email completed.','BSD Send Email',(MB_OK + MB_ICONINFORMATION));
+      btnCancelClick(Sender);
+
+   end;
 
 end;
 
