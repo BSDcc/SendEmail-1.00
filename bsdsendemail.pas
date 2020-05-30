@@ -8,7 +8,7 @@
 // History....: 29 May 2020 - Create first version
 //------------------------------------------------------------------------------
 
-unit ldSendEmail;
+unit bsdsendemail;
 
 {$MODE Delphi}
 
@@ -19,34 +19,59 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, RichMemo;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, ButtonPanel,
+  Buttons, RichMemo;
 
 //------------------------------------------------------------------------------
 // Declarations
 //------------------------------------------------------------------------------
 type
 
-  { TFldSendEmail }
+  { TFBSDSendEmail }
 
-   TFldSendEmail = class(TForm)
+   TFBSDSendEmail = class(TForm)
+  BitBtn1: TBitBtn;
+  BitBtn10: TBitBtn;
+  BitBtn2: TBitBtn;
+  BitBtn3: TBitBtn;
+  BitBtn4: TBitBtn;
+  BitBtn5: TBitBtn;
+  BitBtn6: TBitBtn;
+  BitBtn7: TBitBtn;
+  BitBtn8: TBitBtn;
+  BitBtn9: TBitBtn;
+  bntSend: TButton;
+  btnAttachments: TButton;
+  btnCancel: TButton;
+  btnDelete: TButton;
+  cbDeliver: TCheckBox;
+  cbRead: TCheckBox;
+  EditLeft: TAction;
+  EditCentre: TAction;
+  EditRight: TAction;
+  EditBlock: TAction;
+  EditItalic: TAction;
+  EditUnder: TAction;
+  EditBold: TAction;
+  alAction: TActionList;
+  EditCopy: TEditCopy;
+  EditCut: TEditCut;
+  EditPaste: TEditPaste;
+  edtBcc: TEdit;
+  edtBody: TRichMemo;
+      dlgOpen: TOpenDialog;
+      edtCc: TEdit;
       edtSubject: TEdit;
+      edtTo: TEdit;
       Image1: TImage;
       Label1: TLabel;
-      edtTo: TEdit;
-      edtCc: TEdit;
-      edtBcc: TEdit;
-      btnAttachments: TButton;
       Label2: TLabel;
       Label3: TLabel;
       Label4: TLabel;
       lvAttachments: TListView;
-      btnCancel: TButton;
-      bntSend: TButton;
-      btnDelete: TButton;
-      cbRead: TCheckBox;
-      cbDeliver: TCheckBox;
-      edtBody: TRichMemo;
-      dlgOpen: TOpenDialog;
+      Panel1: TPanel;
+      Panel2: TPanel;
+      Panel3: TPanel;
       procedure btnCancelClick(Sender: TObject);
       procedure bntSendClick(Sender: TObject);
       procedure btnDeleteClick(Sender: TObject);
@@ -76,7 +101,7 @@ end;
 // Global variables
 //------------------------------------------------------------------------------
 var
-   FldSendEmail: TFldSendEmail;
+   FBSDSendEmail: TFBSDSendEmail;
 
 {$IFDEF DARWIN}
    function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities.dylib';
@@ -98,7 +123,7 @@ implementation
 //------------------------------------------------------------------------------
 // Executed when the form is created
 //------------------------------------------------------------------------------
-procedure TFldSendEmail. FormCreate( Sender: TObject);
+procedure TFBSDSendEmail. FormCreate( Sender: TObject);
 var
    idx, NumParms  : integer;
    Params, Args   : TStringList;
@@ -174,7 +199,7 @@ end;
 //------------------------------------------------------------------------------
 // Executed before the form is Displayed
 //------------------------------------------------------------------------------
-procedure TFldSendEmail. FormShow( Sender: TObject);
+procedure TFBSDSendEmail. FormShow( Sender: TObject);
 var
    idx         : integer;
    AttachList  : TStringList;  // Final list of attahcments
@@ -185,7 +210,7 @@ begin
    btnDelete.Enabled := false;
 
    if Trim(StrCaption) <> '' then
-      FldSendEmail.Caption := StrCaption;
+      FBSDSendEmail.Caption := StrCaption;
 
    if Trim(StrTo) <> '' then
       edtTo.Text := StrTo;
@@ -226,7 +251,7 @@ end;
 //---------------------------------------------------------------------------
 // User clicked on the Close button
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.btnCancelClick(Sender: TObject);
+procedure TFBSDSendEmail.btnCancelClick(Sender: TObject);
 begin
 
    Close;
@@ -236,7 +261,7 @@ end;
 //---------------------------------------------------------------------------
 // User clicked on the Send button
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.bntSendClick(Sender: TObject);
+procedure TFBSDSendEmail.bntSendClick(Sender: TObject);
 var
    idx                         : integer;
    AttachList, Body, Delimiter : string;
@@ -329,7 +354,7 @@ end;
 //---------------------------------------------------------------------------
 // User clicked on the Delete button
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.btnDeleteClick(Sender: TObject);
+procedure TFBSDSendEmail.btnDeleteClick(Sender: TObject);
 var
    idx : integer;
 
@@ -351,7 +376,7 @@ end;
 //---------------------------------------------------------------------------
 // User clicked on the Attachments button
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.btnAttachmentsClick(Sender: TObject);
+procedure TFBSDSendEmail.btnAttachmentsClick(Sender: TObject);
 var
    idx      : integer;
    ThisList : TListItem;
@@ -374,7 +399,7 @@ end;
 //---------------------------------------------------------------------------
 // Function to prevent an inline edit of the ListView items
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
+procedure TFBSDSendEmail.lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
 begin
    AllowEdit := false;
 end;
@@ -383,7 +408,7 @@ end;
 //---------------------------------------------------------------------------
 // User selected/deselected an atachment in the Listview
 //---------------------------------------------------------------------------
-procedure TFldSendEmail.lvAttachmentsClick(Sender: TObject);
+procedure TFBSDSendEmail.lvAttachmentsClick(Sender: TObject);
 var
    idx, SelCount : integer;
 

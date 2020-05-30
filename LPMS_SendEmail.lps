@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="11"/>
-    <BuildModes Active="Debug"/>
+    <BuildModes Active="Release"/>
     <Units Count="7">
       <Unit0>
         <Filename Value="LPMS_SendEmail.lpr"/>
@@ -19,7 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="120"/>
+        <TopLine Value="254"/>
         <CursorPos X="42" Y="278"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
@@ -32,6 +32,7 @@
         <TopLine Value="521"/>
         <CursorPos Y="533"/>
         <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
         <Filename Value="../LPMS_ACM-2.01/lpms_login.pas"/>
@@ -60,6 +61,7 @@
         <TopLine Value="3521"/>
         <CursorPos Y="3547"/>
         <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="../BSD_Utilities/BSD_Utilities.lpr"/>

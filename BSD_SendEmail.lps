@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Debug"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="BSD_SendEmail.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="25"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="bsdsendemail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FBSDSendEmail"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="255"/>
+        <CursorPos X="42" Y="278"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="/usr/share/lazarus/2.0.6/lcl/include/listitem.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="521"/>
+        <CursorPos Y="533"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../LPMS_ACM-2.01/lpms_login.pas"/>
+        <UnitName Value="LPMS_Login"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos X="49" Y="248"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../LPMS_ACM-2.01/lpms_main.pas"/>
+        <ComponentName Value="FLPMS_Main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="LPMS_Main"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2382"/>
+        <CursorPos Y="2424"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="/usr/lib/lazarus/2.0.6/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3521"/>
+        <CursorPos Y="3547"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../BSD_Utilities/BSD_Utilities.lpr"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1707"/>
+        <CursorPos X="35" Y="1899"/>
+        <FoldState Value=" T3mJ0N2 picjX08]9qgrQ0{/1 pjInK0~H]Am5tJ0?111l"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="278" Column="42" TopLine="256"/>
+      </Position1>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1" ActiveMode="default">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="-o&quot;francois@bluecrane.cc&quot; -F&quot;BSD Send Email Utility&quot; -P&quot;mail.fdm.me|dev@fdm.me|Isidra01a#&quot; -E&quot;Hi| |This is the email| |Kind Regards|Francois&quot; -T&quot;dev@fdm.me, francois@bluecrane.cc&quot; -C&quot;f@fdm.me&quot; -B&quot;francois@meyerattorneys.co.za&quot; -S&quot;This is a teste email&quot;"/>
+          </local>
+        </Mode0>
+      </Modes>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
