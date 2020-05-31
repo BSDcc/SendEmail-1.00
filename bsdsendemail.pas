@@ -19,8 +19,7 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, ButtonPanel,
-  Buttons, RichMemo;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, RichMemo;
 
 //------------------------------------------------------------------------------
 // Declarations
@@ -30,16 +29,6 @@ type
   { TFBSDSendEmail }
 
    TFBSDSendEmail = class(TForm)
-  BitBtn1: TBitBtn;
-  BitBtn10: TBitBtn;
-  BitBtn2: TBitBtn;
-  BitBtn3: TBitBtn;
-  BitBtn4: TBitBtn;
-  BitBtn5: TBitBtn;
-  BitBtn6: TBitBtn;
-  BitBtn7: TBitBtn;
-  BitBtn8: TBitBtn;
-  BitBtn9: TBitBtn;
   bntSend: TButton;
   btnAttachments: TButton;
   btnCancel: TButton;

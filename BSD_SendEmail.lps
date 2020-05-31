@@ -19,8 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="255"/>
-        <CursorPos X="42" Y="278"/>
+        <TopLine Value="11"/>
+        <CursorPos X="62" Y="22"/>
+        <FoldState Value=" T3jS0/3 pkBmG0H3)"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -72,11 +73,55 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
     </Units>
-    <JumpHistory Count="1">
+    <JumpHistory Count="12" HistoryIndex="11">
       <Position1>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="278" Column="42" TopLine="256"/>
+        <Caret Line="278" Column="42" TopLine="255"/>
       </Position1>
+      <Position2>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="277" Column="42" TopLine="255"/>
+      </Position2>
+      <Position3>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="276" Column="42" TopLine="254"/>
+      </Position3>
+      <Position4>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="275" Column="42" TopLine="253"/>
+      </Position4>
+      <Position5>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="274" Column="42" TopLine="252"/>
+      </Position5>
+      <Position6>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="273" Column="42" TopLine="251"/>
+      </Position6>
+      <Position7>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="272" Column="42" TopLine="250"/>
+      </Position7>
+      <Position8>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="271" Column="42" TopLine="249"/>
+      </Position8>
+      <Position9>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="270" Column="42" TopLine="248"/>
+      </Position9>
+      <Position10>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="269" Column="42" TopLine="247"/>
+      </Position10>
+      <Position11>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="268" Column="42" TopLine="246"/>
+      </Position11>
+      <Position12>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="116" TopLine="107"/>
+      </Position12>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

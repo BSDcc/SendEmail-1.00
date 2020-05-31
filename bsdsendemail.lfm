@@ -882,10 +882,6 @@ object FBSDSendEmail: TFBSDSendEmail
       Width = 766
       Anchors = [akTop, akLeft, akRight, akBottom]
       HideSelection = False
-      Lines.Strings = (
-        'RichMemo1'
-      )
-      Rtf = '{\rtf1\ansi\ansicp1252\deff0\deflan1033{\fonttbl{\f0\fcharset0 Noto Sans;}}{\colortbl;\red33\green33\blue33;}\f0\fs18\b\cf1 \pard\li0\sl200\slmult1 RichMemo1\f0\fs18\b0 \par }'
       ScrollBars = ssAutoBoth
       TabOrder = 5
       ZoomFactor = 1
@@ -901,102 +897,22 @@ object FBSDSendEmail: TFBSDSendEmail
     ClientHeight = 32
     ClientWidth = 782
     TabOrder = 2
-    object BitBtn1: TBitBtn
-      Left = 72
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditCut
-      TabOrder = 0
-    end
-    object BitBtn2: TBitBtn
-      Left = 100
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditCopy
-      TabOrder = 1
-    end
-    object BitBtn3: TBitBtn
-      Left = 128
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditPaste
-      TabOrder = 2
-    end
-    object BitBtn4: TBitBtn
-      Left = 168
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditBold
-      TabOrder = 3
-    end
-    object BitBtn5: TBitBtn
-      Left = 196
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditItalic
-      TabOrder = 4
-    end
-    object BitBtn6: TBitBtn
-      Left = 224
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditUnder
-      TabOrder = 5
-    end
-    object BitBtn7: TBitBtn
-      Left = 264
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditLeft
-      TabOrder = 6
-    end
-    object BitBtn8: TBitBtn
-      Left = 292
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditCentre
-      TabOrder = 7
-    end
-    object BitBtn9: TBitBtn
-      Left = 320
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditRight
-      TabOrder = 8
-    end
-    object BitBtn10: TBitBtn
-      Left = 348
-      Height = 27
-      Top = 0
-      Width = 27
-      Action = EditBlock
-      TabOrder = 9
-    end
     object cbRead: TCheckBox
-      Left = 500
+      Left = 71
       Height = 21
       Top = 4
       Width = 104
       Caption = ' Read Receipt'
-      TabOrder = 10
+      TabOrder = 0
       Visible = False
     end
     object cbDeliver: TCheckBox
-      Left = 651
+      Left = 221
       Height = 21
       Top = 4
       Width = 123
       Caption = ' Delivery Receipt'
-      TabOrder = 11
+      TabOrder = 1
       Visible = False
     end
   end
