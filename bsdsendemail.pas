@@ -18,9 +18,9 @@ unit bsdsendemail;
 interface
 
 uses
-  LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, ButtonPanel,
-  Buttons, RichMemo;
+  LCLIntf, LCLType, SysUtils, Variants, Classes, fprtfexport, Graphics,
+  Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns,
+  Buttons, RTTICtrls, RichMemo, RichView;
 
 //------------------------------------------------------------------------------
 // Declarations
@@ -30,40 +30,41 @@ type
   { TFBSDSendEmail }
 
    TFBSDSendEmail = class(TForm)
-  BitBtn1: TBitBtn;
-  BitBtn10: TBitBtn;
-  BitBtn2: TBitBtn;
-  BitBtn3: TBitBtn;
-  BitBtn4: TBitBtn;
-  BitBtn5: TBitBtn;
-  BitBtn6: TBitBtn;
-  BitBtn7: TBitBtn;
-  BitBtn8: TBitBtn;
-  BitBtn9: TBitBtn;
-  bntSend: TButton;
-  btnAttachments: TButton;
-  btnCancel: TButton;
-  btnDelete: TButton;
-  cbDeliver: TCheckBox;
-  cbRead: TCheckBox;
-  EditLeft: TAction;
-  EditCentre: TAction;
-  EditRight: TAction;
-  EditBlock: TAction;
-  EditItalic: TAction;
-  EditUnder: TAction;
-  EditBold: TAction;
-  alAction: TActionList;
-  EditCopy: TEditCopy;
-  EditCut: TEditCut;
-  EditPaste: TEditPaste;
-  edtBcc: TEdit;
-  edtBody: TRichMemo;
+      btnCut: TBitBtn;
+      btnBlock: TBitBtn;
+      btnCopy: TBitBtn;
+      btnPaste: TBitBtn;
+      btnBold: TBitBtn;
+      btnItalic: TBitBtn;
+      btnUnderline: TBitBtn;
+      btnLeft: TBitBtn;
+      btnCentre: TBitBtn;
+      btnRight: TBitBtn;
+      bntSend: TButton;
+      btnAttachments: TButton;
+      btnCancel: TButton;
+      btnDelete: TButton;
+      cbDeliver: TCheckBox;
+      cbRead: TCheckBox;
+      EditLeft: TAction;
+      EditCentre: TAction;
+      EditRight: TAction;
+      EditBlock: TAction;
+      EditItalic: TAction;
+      EditUnder: TAction;
+      EditBold: TAction;
+      alAction: TActionList;
+      EditCopy: TEditCopy;
+      EditCut: TEditCut;
+      EditPaste: TEditPaste;
+      edtBcc: TEdit;
+      edtBody: TRichMemo;
       dlgOpen: TOpenDialog;
       edtCc: TEdit;
       edtSubject: TEdit;
       edtTo: TEdit;
       Image1: TImage;
+      imgSmall: TImageList;
       Label1: TLabel;
       Label2: TLabel;
       Label3: TLabel;
@@ -72,12 +73,22 @@ type
       Panel1: TPanel;
       Panel2: TPanel;
       Panel3: TPanel;
+      procedure btnBlockClick(Sender: TObject);
+      procedure btnBoldClick(Sender: TObject);
       procedure btnCancelClick(Sender: TObject);
       procedure bntSendClick(Sender: TObject);
+      procedure btnCentreClick(Sender: TObject);
+      procedure btnCopyClick(Sender: TObject);
+      procedure btnCutClick(Sender: TObject);
       procedure btnDeleteClick(Sender: TObject);
       procedure btnAttachmentsClick(Sender: TObject);
-      procedure FormCreate( Sender: TObject);
-      procedure FormShow( Sender: TObject);
+      procedure btnItalicClick(Sender: TObject);
+      procedure btnLeftClick(Sender: TObject);
+      procedure btnPasteClick(Sender: TObject);
+      procedure btnRightClick(Sender: TObject);
+      procedure btnUnderlineClick(Sender: TObject);
+      procedure FormCreate(Sender: TObject);
+      procedure FormShow(Sender: TObject);
       procedure lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
       procedure lvAttachmentsClick(Sender: TObject);
 
@@ -92,6 +103,7 @@ private  { Private declarations }
    StrCc         : string;        // Comma delimited list of 'Cc' recipients
    StrBcc        : string;        // Comma delimited list of 'Bcc' recipients
    StrSubject    : string;        // Subject line of the email
+   ClipBoard     : string;        // Used as a simple clipboard
 
 public   { Public declarations }
 
@@ -123,12 +135,14 @@ implementation
 //------------------------------------------------------------------------------
 // Executed when the form is created
 //------------------------------------------------------------------------------
-procedure TFBSDSendEmail. FormCreate( Sender: TObject);
+procedure TFBSDSendEmail.FormCreate(Sender: TObject);
 var
    idx, NumParms  : integer;
    Params, Args   : TStringList;
 
 begin
+
+   Clipboard := '';
 
 //--- Check whether any paramters were passed and retrieve if so
 
@@ -199,7 +213,7 @@ end;
 //------------------------------------------------------------------------------
 // Executed before the form is Displayed
 //------------------------------------------------------------------------------
-procedure TFBSDSendEmail. FormShow( Sender: TObject);
+procedure TFBSDSendEmail.FormShow(Sender: TObject);
 var
    idx         : integer;
    AttachList  : TStringList;  // Final list of attahcments
@@ -249,6 +263,214 @@ begin
 end;
 
 //---------------------------------------------------------------------------
+// User clicked on the Cut button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnCutClick(Sender: TObject);
+begin
+
+   Clipboard := edtBody.GetText(edtBody.SelStart,edtBody.SelLength);
+   edtBody.InDelText('',edtBody.SelStart,edtBody.SelLength);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Copy button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnCopyClick(Sender: TObject);
+begin
+
+   Clipboard := edtBody.GetText(edtBody.SelStart,edtBody.SelLength);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Paste button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnPasteClick(Sender: TObject);
+begin
+
+   edtBody.InDelText(Clipboard,edtBody.SelStart,edtBody.SelLength);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Bold button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnBoldClick(Sender: TObject);
+var
+   Start, Len : integer;
+   Clip       : string;
+   TextParams : TFontParams;
+
+begin
+
+   Start := edtBody.SelStart;
+   Len   := edtBody.SelLength;
+
+   edtBody.GetTextAttributes(edtBody.SelStart,TextParams);
+
+   if fsBold in TextParams.Style = False then
+      edtBody.SetRangeParams (edtBody.SelStart,edtBody.SelLength,[tmm_Styles],'',0,0,[fsBold],[])
+   else begin
+
+      Clip := edtBody.GetText(edtBody.SelStart,edtBody.SelLength);
+      edtBody.InDelText(Clip,edtBody.SelStart,edtBody.SelLength);
+
+      if fsItalic in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsItalic],[]);
+
+      if fsUnderLine in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsUnderLine],[]);
+
+      edtBody.SelStart  := Start;
+      edtBody.SelLength := Len;
+
+   end;
+
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Italic button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnItalicClick(Sender: TObject);
+var
+   Start, Len : integer;
+   Clip       : string;
+   TextParams : TFontParams;
+
+begin
+
+   Start := edtBody.SelStart;
+   Len   := edtBody.SelLength;
+
+   edtBody.GetTextAttributes(edtBody.SelStart,TextParams);
+
+   if fsItalic in TextParams.Style = False then
+      edtBody.SetRangeParams (edtBody.SelStart,edtBody.SelLength,[tmm_Styles],'',0,0,[fsItalic],[])
+   else begin
+
+      Clip := edtBody.GetText(edtBody.SelStart,edtBody.SelLength);
+      edtBody.InDelText(Clip,edtBody.SelStart,edtBody.SelLength);
+
+      if fsBold in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsBold],[]);
+
+      if fsUnderLine in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsUnderLine],[]);
+
+      edtBody.SelStart  := Start;
+      edtBody.SelLength := Len;
+
+   end;
+
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Underline button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnUnderlineClick(Sender: TObject);
+var
+   Start, Len : integer;
+   Clip       : string;
+   TextParams : TFontParams;
+
+begin
+
+   Start := edtBody.SelStart;
+   Len   := edtBody.SelLength;
+
+   edtBody.GetTextAttributes(edtBody.SelStart,TextParams);
+
+   if fsUnderLine in TextParams.Style = False then
+      edtBody.SetRangeParams (edtBody.SelStart,edtBody.SelLength,[tmm_Styles],'',0,0,[fsUnderLine],[])
+   else begin
+
+      Clip := edtBody.GetText(edtBody.SelStart,edtBody.SelLength);
+      edtBody.InDelText(Clip,edtBody.SelStart,edtBody.SelLength);
+
+      if fsItalic in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsItalic],[]);
+
+      if fsBold in TextParams.Style = True then
+         edtBody.SetRangeParams (Start,Len,[tmm_Styles],'',0,0,[fsBold],[]);
+
+      edtBody.SelStart  := Start;
+      edtBody.SelLength := Len;
+
+   end;
+
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Left Justify button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnLeftClick(Sender: TObject);
+var
+   Start, Len : integer;
+
+begin
+
+   edtBody.GetParaRange(edtBody.SelStart, Start, Len);
+   edtBody.SetParaAlignment(Start, Len, paLeft);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Centre Justify button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnCentreClick(Sender: TObject);
+var
+   Start, Len : integer;
+
+begin
+
+   edtBody.GetParaRange(edtBody.SelStart, Start, Len);
+   edtBody.SetParaAlignment(Start, Len, paCenter);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Right Justify button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnRightClick(Sender: TObject);
+var
+   Start, Len : integer;
+
+begin
+
+   edtBody.GetParaRange(edtBody.SelStart, Start, Len);
+   edtBody.SetParaAlignment(Start, Len, paRight);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
+// User clicked on the Block Justify button
+//---------------------------------------------------------------------------
+procedure TFBSDSendEmail.btnBlockClick(Sender: TObject);
+var
+   Start, Len : integer;
+
+begin
+
+   edtBody.GetParaRange(edtBody.SelStart, Start, Len);
+   edtBody.SetParaAlignment(Start, Len, paJustify);
+   edtBody.SetFocus;
+
+end;
+
+//---------------------------------------------------------------------------
 // User clicked on the Close button
 //---------------------------------------------------------------------------
 procedure TFBSDSendEmail.btnCancelClick(Sender: TObject);
@@ -265,6 +487,7 @@ procedure TFBSDSendEmail.bntSendClick(Sender: TObject);
 var
    idx                         : integer;
    AttachList, Body, Delimiter : string;
+   ThisStream                  : TMemoryStream;
 
 begin
 
@@ -338,6 +561,13 @@ begin
 
    end;
 
+//--- Save the RTF File to disk for later use
+
+   ThisStream := TMemoryStream.Create;
+   edtBody.SaveRichText(ThisStream);
+   ThisStream.SaveToFile('/tmp/TestFile.rtf');
+   AttachList := AttachList + '|' + '/tmp/TestFile.rtf';
+
 //--- Send the email
 
    if SendMimeMail(StrFrom, edtTo.Text, edtCc.Text, edtBcc.Text, edtSubject.Text, Body, AttachList, SMTPParms) = False then
@@ -348,6 +578,8 @@ begin
       btnCancelClick(Sender);
 
    end;
+
+   DeleteFile('/tmp/TestFile.rtf');
 
 end;
 
@@ -403,7 +635,6 @@ procedure TFBSDSendEmail.lvAttachmentsEditing(Sender: TObject; Item: TListItem; 
 begin
    AllowEdit := false;
 end;
-
 
 //---------------------------------------------------------------------------
 // User selected/deselected an atachment in the Listview
