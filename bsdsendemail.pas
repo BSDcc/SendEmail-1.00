@@ -19,7 +19,18 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, RichMemo;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, RichMemo
+
+{$IFDEF DARWIN}                      // Target is macOS
+   ,Zipper, StrUtils, sqldb, DateUtils, SMTPSend, MimeMess, MimePart, SynaUtil,
+  {$IFDEF CPUI386}                  // Running on old hardware i.e. i386
+      mysql55conn, Interfaces;
+   {$ELSE}                           // Running on Catalina
+      mysql57conn, Interfaces;
+   {$ENDIF}
+{$ELSE}
+   ;
+{$ENDIF}
 
 //------------------------------------------------------------------------------
 // Declarations
@@ -29,25 +40,25 @@ type
   { TFBSDSendEmail }
 
    TFBSDSendEmail = class(TForm)
-  bntSend: TButton;
-  btnAttachments: TButton;
-  btnCancel: TButton;
-  btnDelete: TButton;
-  cbDeliver: TCheckBox;
-  cbRead: TCheckBox;
-  EditLeft: TAction;
-  EditCentre: TAction;
-  EditRight: TAction;
-  EditBlock: TAction;
-  EditItalic: TAction;
-  EditUnder: TAction;
-  EditBold: TAction;
-  alAction: TActionList;
-  EditCopy: TEditCopy;
-  EditCut: TEditCut;
-  EditPaste: TEditPaste;
-  edtBcc: TEdit;
-  edtBody: TRichMemo;
+      bntSend: TButton;
+      btnAttachments: TButton;
+      btnCancel: TButton;
+      btnDelete: TButton;
+      cbDeliver: TCheckBox;
+      cbRead: TCheckBox;
+      EditLeft: TAction;
+      EditCentre: TAction;
+      EditRight: TAction;
+      EditBlock: TAction;
+      EditItalic: TAction;
+      EditUnder: TAction;
+      EditBold: TAction;
+      alAction: TActionList;
+      EditCopy: TEditCopy;
+      EditCut: TEditCut;
+      EditPaste: TEditPaste;
+      edtBcc: TEdit;
+      edtBody: TRichMemo;
       dlgOpen: TOpenDialog;
       edtCc: TEdit;
       edtSubject: TEdit;
@@ -70,6 +81,10 @@ type
       procedure lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
       procedure lvAttachmentsClick(Sender: TObject);
 
+{$IFDEF DARWIN}
+{$INCLUDE '../BSD_Utilities/BSD_Utilities_01.inc'}
+{$ENDIF}
+
 private  { Private declarations }
 
    StrCaption    : string;        // Caption to be display at the top of the form
@@ -82,9 +97,15 @@ private  { Private declarations }
    StrBcc        : string;        // Comma delimited list of 'Bcc' recipients
    StrSubject    : string;        // Subject line of the email
 
+{$IFDEF DARWIN}
+{$INCLUDE '../BSD_Utilities/BSD_Utilities_02.inc'}
+{$ENDIF}
+
 public   { Public declarations }
 
 end;
+
+{$IFNDEF DARWIN}
 
 //------------------------------------------------------------------------------
 // Global variables
@@ -92,10 +113,6 @@ end;
 var
    FBSDSendEmail: TFBSDSendEmail;
 
-{$IFDEF DARWIN}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities';
-   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities';
-{$ENDIF}
 {$IFDEF LINUX}
    function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities.so';
    function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities.so';
@@ -108,6 +125,22 @@ var
 implementation
 
 {$R *.lfm}
+
+{$ElSE}
+
+//------------------------------------------------------------------------------
+// Global variables
+//------------------------------------------------------------------------------
+var
+   FBSDSendEmail: TFBSDSendEmail;
+
+implementation
+
+{$R *.lfm}
+
+{$INCLUDE '../BSD_Utilities/BSD_Utilities.lpr'}
+
+{$ENDIF}
 
 //------------------------------------------------------------------------------
 // Executed when the form is created

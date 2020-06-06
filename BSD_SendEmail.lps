@@ -3,13 +3,13 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Release"/>
-    <Units Count="7">
+    <Units Count="11">
       <Unit0>
         <Filename Value="BSD_SendEmail.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="31"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -19,10 +19,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="77"/>
-        <CursorPos X="125" Y="97"/>
-        <FoldState Value=" T3jS0/3 pkBmG0H3)"/>
-        <UsageCount Value="25"/>
+        <TopLine Value="120"/>
+        <CursorPos X="10" Y="141"/>
+        <FoldState Value=" T3kI0/111 pj2mG0H3D"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -32,7 +32,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="521"/>
         <CursorPos Y="533"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
@@ -41,7 +41,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="223"/>
         <CursorPos X="49" Y="248"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
@@ -53,7 +53,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2382"/>
         <CursorPos Y="2424"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
@@ -61,72 +61,119 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3521"/>
         <CursorPos Y="3547"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="../BSD_Utilities/BSD_Utilities.lpr"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1707"/>
-        <CursorPos X="35" Y="1899"/>
-        <FoldState Value=" T3mJ0N2 picjX08]9qgrQ0{/1 pjInK0~H]Am5tJ0?111l"/>
-        <UsageCount Value="10"/>
+        <CursorPos X="4" Y="1086"/>
+        <FoldState Value=" T3n90;3w"/>
+        <UsageCount Value="12"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="../BSD_Utilities/BSD_Utilities_01.inc"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="4"/>
+        <UsageCount Value="25"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="bsd_utilities_03.inc"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="23"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../BSD_Utilities/BSD_Utilities_02.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="12"/>
+        <CursorPos Y="37"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../LPMS_Backup_Manager-3.02.git/ldbackupapp.pas"/>
+        <UnitName Value="ldBackupApp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="403"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit10>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="17" HistoryIndex="16">
       <Position1>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="278" Column="42" TopLine="255"/>
+        <Caret Line="25" Column="40" TopLine="10"/>
       </Position1>
       <Position2>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="277" Column="42" TopLine="255"/>
+        <Caret Line="25" Column="44" TopLine="12"/>
       </Position2>
       <Position3>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="276" Column="42" TopLine="254"/>
+        <Caret Line="163" TopLine="145"/>
       </Position3>
       <Position4>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="275" Column="42" TopLine="253"/>
+        <Caret Line="96" TopLine="80"/>
       </Position4>
       <Position5>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="274" Column="42" TopLine="252"/>
+        <Caret Line="84" TopLine="76"/>
       </Position5>
       <Position6>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="273" Column="42" TopLine="251"/>
+        <Caret Line="75" Column="17" TopLine="75"/>
       </Position6>
       <Position7>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="272" Column="42" TopLine="250"/>
+        <Caret Line="76" Column="17" TopLine="64"/>
       </Position7>
       <Position8>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="271" Column="42" TopLine="249"/>
+        <Caret Line="77" Column="17" TopLine="65"/>
       </Position8>
       <Position9>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="270" Column="42" TopLine="248"/>
+        <Caret Line="36" TopLine="14"/>
       </Position9>
       <Position10>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="269" Column="42" TopLine="247"/>
+        <Caret Line="84" TopLine="65"/>
       </Position10>
       <Position11>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="268" Column="42" TopLine="246"/>
+        <Caret Line="96" Column="45" TopLine="73"/>
       </Position11>
       <Position12>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="116" TopLine="107"/>
+        <Caret Line="84" TopLine="78"/>
       </Position12>
       <Position13>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="97" Column="125" TopLine="77"/>
+        <Caret Line="127" TopLine="103"/>
       </Position13>
+      <Position14>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="310" TopLine="167"/>
+      </Position14>
+      <Position15>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Column="62"/>
+      </Position15>
+      <Position16>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="85" Column="10" TopLine="65"/>
+      </Position16>
+      <Position17>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="101" Column="10" TopLine="81"/>
+      </Position17>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
