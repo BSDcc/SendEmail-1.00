@@ -2,14 +2,16 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="11"/>
-    <BuildModes Active="Release"/>
+    <BuildModes Active="Debug"/>
     <Units Count="11">
       <Unit0>
         <Filename Value="BSD_SendEmail.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <CursorPos Y="15"/>
         <UsageCount Value="31"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -18,24 +20,39 @@
         <ComponentName Value="FBSDSendEmail"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="120"/>
+        <TopLine Value="105"/>
         <CursorPos X="10" Y="141"/>
-        <FoldState Value=" T3kI0/111 pj2mG0H3D"/>
+        <FoldState Value=" T3kI0/111D"/>
         <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
+        <Filename Value="../BSD_Utilities/BSD_Utilities_01.inc"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="4"/>
+        <UsageCount Value="25"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="bsd_utilities_03.inc"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="23"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit3>
+      <Unit4>
         <Filename Value="/usr/share/lazarus/2.0.6/lcl/include/listitem.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="521"/>
         <CursorPos Y="533"/>
         <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit2>
-      <Unit3>
+      </Unit4>
+      <Unit5>
         <Filename Value="../LPMS_ACM-2.01/lpms_login.pas"/>
         <UnitName Value="LPMS_Login"/>
         <EditorIndex Value="-1"/>
@@ -43,8 +60,8 @@
         <CursorPos X="49" Y="248"/>
         <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit3>
-      <Unit4>
+      </Unit5>
+      <Unit6>
         <Filename Value="../LPMS_ACM-2.01/lpms_main.pas"/>
         <ComponentName Value="FLPMS_Main"/>
         <HasResources Value="True"/>
@@ -55,37 +72,21 @@
         <CursorPos Y="2424"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit4>
-      <Unit5>
+      </Unit6>
+      <Unit7>
         <Filename Value="/usr/lib/lazarus/2.0.6/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3521"/>
         <CursorPos Y="3547"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit5>
-      <Unit6>
+      </Unit7>
+      <Unit8>
         <Filename Value="../BSD_Utilities/BSD_Utilities.lpr"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="4" Y="1086"/>
         <FoldState Value=" T3n90;3w"/>
         <UsageCount Value="12"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="../BSD_Utilities/BSD_Utilities_01.inc"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="4"/>
-        <UsageCount Value="25"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="bsd_utilities_03.inc"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="13"/>
-        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
@@ -105,7 +106,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="19" HistoryIndex="18">
       <Position1>
         <Filename Value="bsdsendemail.pas"/>
         <Caret Line="25" Column="40" TopLine="10"/>
@@ -174,6 +175,14 @@
         <Filename Value="bsdsendemail.pas"/>
         <Caret Line="101" Column="10" TopLine="81"/>
       </Position17>
+      <Position18>
+        <Filename Value="bsdsendemail.pas"/>
+        <Caret Line="141" Column="10" TopLine="105"/>
+      </Position18>
+      <Position19>
+        <Filename Value="BSD_SendEmail.lpr"/>
+        <Caret Line="15"/>
+      </Position19>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
