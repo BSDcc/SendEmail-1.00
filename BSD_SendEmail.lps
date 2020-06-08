@@ -62,7 +62,6 @@
         <TopLine Value="3521"/>
         <CursorPos Y="3547"/>
         <UsageCount Value="11"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="../BSD_Utilities/BSD_Utilities.lpr"/>
