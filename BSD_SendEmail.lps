@@ -2,16 +2,14 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="11"/>
-    <BuildModes Active="Debug"/>
+    <BuildModes Active="Release"/>
     <Units Count="11">
       <Unit0>
         <Filename Value="BSD_SendEmail.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="15"/>
         <UsageCount Value="31"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -20,6 +18,7 @@
         <ComponentName Value="FBSDSendEmail"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="105"/>
         <CursorPos X="10" Y="141"/>
         <FoldState Value=" T3kI0/111D"/>
@@ -106,7 +105,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="19" HistoryIndex="18">
+    <JumpHistory Count="18" HistoryIndex="17">
       <Position1>
         <Filename Value="bsdsendemail.pas"/>
         <Caret Line="25" Column="40" TopLine="10"/>
@@ -179,10 +178,6 @@
         <Filename Value="bsdsendemail.pas"/>
         <Caret Line="141" Column="10" TopLine="105"/>
       </Position18>
-      <Position19>
-        <Filename Value="BSD_SendEmail.lpr"/>
-        <Caret Line="15"/>
-      </Position19>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
