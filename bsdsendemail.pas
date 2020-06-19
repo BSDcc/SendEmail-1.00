@@ -18,9 +18,8 @@ unit bsdsendemail;
 interface
 
 uses
-  LCLIntf, LCLType, SysUtils, Variants, Classes, fprtfexport, Graphics,
-  Controls, Forms, Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns,
-  Buttons, RTTICtrls, RichMemo, RichView;
+  LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, Buttons, RichMemo;
 
 //------------------------------------------------------------------------------
 // Declarations
