@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="91"/>
+        <UsageCount Value="92"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -19,9 +19,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="62" Y="22"/>
-        <FoldState Value=" T3k70!5 pjDlU0X6 piZkH0{H4n"/>
-        <UsageCount Value="91"/>
+        <TopLine Value="112"/>
+        <CursorPos X="79" Y="133"/>
+        <FoldState Value=" T3m50l5 pigkX0X5141"/>
+        <UsageCount Value="92"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -32,6 +33,7 @@
         <TopLine Value="521"/>
         <CursorPos Y="533"/>
         <UsageCount Value="4"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
         <Filename Value="../LPMS_ACM-2.01/lpms_login.pas"/>
@@ -78,6 +80,7 @@
         <TopLine Value="819"/>
         <CursorPos Y="832"/>
         <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
         <Filename Value="../../.lazarus/onlinepackagemanager/packages/richmemo/wsrichmemo.pas"/>
@@ -86,6 +89,7 @@
         <TopLine Value="130"/>
         <CursorPos Y="138"/>
         <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
         <Filename Value="/usr/share/lazarus/2.0.6/lcl/include/control.inc"/>
@@ -93,6 +97,7 @@
         <TopLine Value="2905"/>
         <CursorPos Y="2915"/>
         <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
       <Unit10>
         <Filename Value="../LPMS_Backup_Manager-3.02/Source/ldbackupapp.pas"/>
@@ -108,67 +113,67 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="307" TopLine="293"/>
+        <Caret Line="317" TopLine="298"/>
       </Position1>
       <Position2>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="311" TopLine="293"/>
+        <Caret Line="327" Column="43" TopLine="305"/>
       </Position2>
       <Position3>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="312" TopLine="293"/>
+        <Caret Line="309" TopLine="306"/>
       </Position3>
       <Position4>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="314" TopLine="295"/>
+        <Caret Line="311" TopLine="306"/>
       </Position4>
       <Position5>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="315" TopLine="296"/>
+        <Caret Line="315" TopLine="306"/>
       </Position5>
       <Position6>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="317" TopLine="298"/>
+        <Caret Line="316" TopLine="306"/>
       </Position6>
       <Position7>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="327" Column="43" TopLine="305"/>
+        <Caret Line="318" TopLine="306"/>
       </Position7>
       <Position8>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="309" TopLine="306"/>
+        <Caret Line="319" TopLine="306"/>
       </Position8>
       <Position9>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="311" TopLine="306"/>
+        <Caret Line="120" Column="78" TopLine="114"/>
       </Position9>
       <Position10>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="315" TopLine="306"/>
+        <Caret Line="540" TopLine="526"/>
       </Position10>
       <Position11>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="316" TopLine="306"/>
+        <Caret Line="538" TopLine="526"/>
       </Position11>
       <Position12>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="318" TopLine="306"/>
+        <Caret Line="540" TopLine="526"/>
       </Position12>
       <Position13>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="319" TopLine="306"/>
+        <Caret Line="538" TopLine="526"/>
       </Position13>
       <Position14>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="120" Column="78" TopLine="114"/>
+        <Caret Line="540" TopLine="526"/>
       </Position14>
       <Position15>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="540" TopLine="526"/>
+        <Caret Line="538" TopLine="526"/>
       </Position15>
       <Position16>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="538" TopLine="526"/>
+        <Caret Line="546" TopLine="526"/>
       </Position16>
       <Position17>
         <Filename Value="bsdsendemail.pas"/>
@@ -176,55 +181,55 @@
       </Position17>
       <Position18>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="538" TopLine="526"/>
+        <Caret Line="549" Column="4" TopLine="496"/>
       </Position18>
       <Position19>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="540" TopLine="526"/>
+        <Caret Line="550" Column="4" TopLine="529"/>
       </Position19>
       <Position20>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="538" TopLine="526"/>
+        <Caret Line="549" Column="4" TopLine="528"/>
       </Position20>
       <Position21>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="546" TopLine="526"/>
+        <Caret Line="548" Column="4" TopLine="527"/>
       </Position21>
       <Position22>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="540" TopLine="526"/>
+        <Caret Line="432" Column="4" TopLine="418"/>
       </Position22>
       <Position23>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="549" Column="4" TopLine="496"/>
+        <Caret Line="431" Column="12" TopLine="419"/>
       </Position23>
       <Position24>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="550" Column="4" TopLine="529"/>
+        <Caret Line="486"/>
       </Position24>
       <Position25>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="549" Column="4" TopLine="528"/>
+        <Caret Line="23" Column="31"/>
       </Position25>
       <Position26>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="548" Column="4" TopLine="527"/>
+        <Caret Line="590" TopLine="542"/>
       </Position26>
       <Position27>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="432" Column="4" TopLine="418"/>
+        <Caret Line="578" TopLine="527"/>
       </Position27>
       <Position28>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="431" Column="12" TopLine="419"/>
+        <Caret Line="590" TopLine="564"/>
       </Position28>
       <Position29>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="486"/>
+        <Caret Line="579" TopLine="564"/>
       </Position29>
       <Position30>
         <Filename Value="bsdsendemail.pas"/>
-        <Caret Line="23" Column="31"/>
+        <Caret Line="604" Column="99" TopLine="564"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -239,13 +244,16 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="2">
+    <Watches Count="3">
       <Item1>
         <Expression Value="Start"/>
       </Item1>
       <Item2>
         <Expression Value="Length"/>
       </Item2>
+      <Item3>
+        <Expression Value="HTMLBody"/>
+      </Item3>
     </Watches>
   </Debugging>
 </CONFIG>

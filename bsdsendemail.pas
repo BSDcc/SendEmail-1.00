@@ -19,7 +19,13 @@ interface
 
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, Buttons, RichMemo;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, Buttons, RichMemo
+
+{$IFDEF WINDOWS}
+   , ScroogeXHTML;
+{$ELSE}
+   ;
+{$ENDIF}
 
 //------------------------------------------------------------------------------
 // Declarations
@@ -124,7 +130,7 @@ var
 {$ENDIF}
 {$IFDEF WINDOWS}
    function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'BSD_Utilities.dll';
-   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'BSD_Utilities.dll';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, HTMLBody, Attach, SMTPStr : string): boolean; cdecl; external 'BSD_Utilities.dll';
 {$ENDIF}
 
 implementation
@@ -486,7 +492,9 @@ procedure TFBSDSendEmail.bntSendClick(Sender: TObject);
 var
    idx                         : integer;
    AttachList, Body, Delimiter : string;
+   HTMLBody                    : string;
    ThisStream                  : TMemoryStream;
+   SX                          : TBTScroogeXHTML;
 
 begin
 
@@ -560,16 +568,40 @@ begin
 
    end;
 
+{$IFDEF WINDOWS}
+
+//--- Turn the body of the email into a HTML string - At the moment this only
+//--- works on Windows
+
+   try
+
+      SX := TBTScroogeXHTML.Create;
+      HTMLBody := SX.Convert(edtBody.Rtf);
+
+   finally
+
+      SX.Free;
+
+   end;
+
+{$ELSE}
+
+   HTMLBody := '';
+
+{$ENDIF}
+
+{
 //--- Save the RTF File to disk for later use
 
    ThisStream := TMemoryStream.Create;
    edtBody.SaveRichText(ThisStream);
    ThisStream.SaveToFile('/tmp/TestFile.rtf');
    AttachList := AttachList + '|' + '/tmp/TestFile.rtf';
+}
 
 //--- Send the email
 
-   if SendMimeMail(StrFrom, edtTo.Text, edtCc.Text, edtBcc.Text, edtSubject.Text, Body, AttachList, SMTPParms) = False then
+   if SendMimeMail(StrFrom, edtTo.Text, edtCc.Text, edtBcc.Text, edtSubject.Text, Body, HTMLBody, AttachList, SMTPParms) = False then
       Application.MessageBox('Sending Email failed! Please check Email set-up details.','BSD Send Email',(MB_OK + MB_ICONSTOP))
    else begin
 
