@@ -29,46 +29,46 @@ type
   { TFBSDSendEmail }
 
    TFBSDSendEmail = class(TForm)
-  bntSend: TButton;
-  btnAttachments: TButton;
-  btnCancel: TButton;
-  btnDelete: TButton;
-  cbDeliver: TCheckBox;
-  cbRead: TCheckBox;
-  EditLeft: TAction;
-  EditCentre: TAction;
-  EditRight: TAction;
-  EditBlock: TAction;
-  EditItalic: TAction;
-  EditUnder: TAction;
-  EditBold: TAction;
-  alAction: TActionList;
-  EditCopy: TEditCopy;
-  EditCut: TEditCut;
-  EditPaste: TEditPaste;
-  edtBcc: TEdit;
-  edtBody: TRichMemo;
-      dlgOpen: TOpenDialog;
-      edtCc: TEdit;
-      edtSubject: TEdit;
-      edtTo: TEdit;
-      Image1: TImage;
-      Label1: TLabel;
-      Label2: TLabel;
-      Label3: TLabel;
-      Label4: TLabel;
-      lvAttachments: TListView;
-      Panel1: TPanel;
-      Panel2: TPanel;
-      Panel3: TPanel;
-      procedure btnCancelClick(Sender: TObject);
-      procedure bntSendClick(Sender: TObject);
-      procedure btnDeleteClick(Sender: TObject);
-      procedure btnAttachmentsClick(Sender: TObject);
-      procedure FormCreate( Sender: TObject);
-      procedure FormShow( Sender: TObject);
-      procedure lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
-      procedure lvAttachmentsClick(Sender: TObject);
+   bntSend: TButton;
+   btnAttachments: TButton;
+   btnCancel: TButton;
+   btnDelete: TButton;
+   cbDeliver: TCheckBox;
+   cbRead: TCheckBox;
+   EditLeft: TAction;
+   EditCentre: TAction;
+   EditRight: TAction;
+   EditBlock: TAction;
+   EditItalic: TAction;
+   EditUnder: TAction;
+   EditBold: TAction;
+   alAction: TActionList;
+   EditCopy: TEditCopy;
+   EditCut: TEditCut;
+   EditPaste: TEditPaste;
+   edtBcc: TEdit;
+   edtBody: TRichMemo;
+   dlgOpen: TOpenDialog;
+   edtCc: TEdit;
+   edtSubject: TEdit;
+   edtTo: TEdit;
+   Image1: TImage;
+   Label1: TLabel;
+   Label2: TLabel;
+   Label3: TLabel;
+   Label4: TLabel;
+   lvAttachments: TListView;
+   Panel1: TPanel;
+   Panel2: TPanel;
+   Panel3: TPanel;
+   procedure btnCancelClick(Sender: TObject);
+   procedure bntSendClick(Sender: TObject);
+   procedure btnDeleteClick(Sender: TObject);
+   procedure btnAttachmentsClick(Sender: TObject);
+   procedure FormCreate( Sender: TObject);
+   procedure FormShow( Sender: TObject);
+   procedure lvAttachmentsEditing(Sender: TObject; Item: TListItem; var AllowEdit: Boolean);
+   procedure lvAttachmentsClick(Sender: TObject);
 
 private  { Private declarations }
 
@@ -93,16 +93,16 @@ var
    FBSDSendEmail: TFBSDSendEmail;
 
 {$IFDEF DARWIN}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities';
-   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities';
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'libbsd_utilities.dylib';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; StdCall; external 'libbsd_utilities.dylib';
 {$ENDIF}
 {$IFDEF LINUX}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'libbsd_utilities.so';
-   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'libbsd_utilities.so';
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'libbsd_utilities.so';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; StdCall; external 'libbsd_utilities.so';
 {$ENDIF}
 {$IFDEF WINDOWS}
-   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; cdecl; external 'BSD_Utilities.dll';
-   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; cdecl; external 'BSD_Utilities.dll';
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'BSD_Utilities.dll';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; StdCall; external 'BSD_Utilities.dll';
 {$ENDIF}
 
 implementation

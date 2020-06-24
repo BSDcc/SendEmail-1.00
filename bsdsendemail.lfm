@@ -13,7 +13,7 @@ object FBSDSendEmail: TFBSDSendEmail
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.6.0'
   object Panel1: TPanel
     Left = 0
     Height = 120
@@ -743,7 +743,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object Label1: TLabel
       Left = 8
-      Height = 15
+      Height = 13
       Top = 96
       Width = 50
       Caption = 'Subject:'
@@ -751,7 +751,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object edtTo: TEdit
       Left = 72
-      Height = 25
+      Height = 24
       Top = 8
       Width = 619
       Anchors = [akTop, akLeft, akRight]
@@ -759,7 +759,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object edtCc: TEdit
       Left = 72
-      Height = 25
+      Height = 24
       Top = 36
       Width = 619
       Anchors = [akTop, akLeft, akRight]
@@ -767,7 +767,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object edtBcc: TEdit
       Left = 72
-      Height = 25
+      Height = 24
       Top = 64
       Width = 619
       Anchors = [akTop, akLeft, akRight]
@@ -775,7 +775,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object edtSubject: TEdit
       Left = 72
-      Height = 25
+      Height = 24
       Top = 92
       Width = 702
       Anchors = [akTop, akLeft, akRight]
@@ -783,7 +783,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object Label2: TLabel
       Left = 8
-      Height = 15
+      Height = 13
       Top = 12
       Width = 16
       Caption = 'To:'
@@ -791,7 +791,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object Label3: TLabel
       Left = 8
-      Height = 15
+      Height = 13
       Top = 40
       Width = 19
       Caption = 'Cc:'
@@ -799,7 +799,7 @@ object FBSDSendEmail: TFBSDSendEmail
     end
     object Label4: TLabel
       Left = 8
-      Height = 15
+      Height = 13
       Top = 68
       Width = 26
       Caption = 'Bcc:'
@@ -901,7 +901,7 @@ object FBSDSendEmail: TFBSDSendEmail
       Left = 71
       Height = 21
       Top = 4
-      Width = 104
+      Width = 106
       Caption = ' Read Receipt'
       TabOrder = 0
       Visible = False
@@ -910,7 +910,7 @@ object FBSDSendEmail: TFBSDSendEmail
       Left = 221
       Height = 21
       Top = 4
-      Width = 123
+      Width = 124
       Caption = ' Delivery Receipt'
       TabOrder = 1
       Visible = False
