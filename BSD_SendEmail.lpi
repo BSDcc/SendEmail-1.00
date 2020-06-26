@@ -63,7 +63,11 @@
           <Version Value="11"/>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
+<<<<<<< HEAD
             <Libraries Value="../BSD_Utilities/lib/x86_64-linux"/>
+=======
+            <Libraries Value="../BSD_Utilities/lib/$(TargetCPU)-$(TargetOS)"/>
+>>>>>>> [20200626] Development Commit
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/$(BuildMode)"/>
           </SearchPaths>
           <Parsing>
@@ -73,6 +77,11 @@
           </Parsing>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
+<<<<<<< HEAD
+=======
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="linux"/>
+>>>>>>> [20200626] Development Commit
             <Optimizations>
               <OptimizationLevel Value="3"/>
             </Optimizations>
@@ -93,8 +102,15 @@
           </Other>
         </CompilerOptions>
       </Item3>
+<<<<<<< HEAD
       <SharedMatrixOptions Count="1">
         <Item1 ID="246151394850" Type="OutDir" Value="lib/$(TargetCPU)-$(TargetOS)/$(BuildMode)"/>
+=======
+      <SharedMatrixOptions Count="3">
+        <Item1 ID="783635863737" Modes="Release" Type="OutDir" Value="lib/$(TargetCPU)-$(TargetOS)/$(BuildMode)"/>
+        <Item2 ID="566199670147" Type="IDEMacro" MacroName="LCLWidgetType" Value="carbon"/>
+        <Item3 ID="818113589674" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+>>>>>>> [20200626] Development Commit
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>

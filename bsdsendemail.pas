@@ -18,8 +18,17 @@ unit bsdsendemail;
 interface
 
 uses
-  LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns, RichMemo;
+   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+   Dialogs, ComCtrls, StdCtrls, ExtCtrls, ActnList, StdActns,
+{$IFDEF DARWIN}
+   dynlibs, macOSAll,
+   {$IFDEF CPUI386}
+      CarbonProc,
+   {$ELSE}
+      CocoaAll,
+   {$ENDIF}
+{$ENDIF}
+   RichMemo;
 
 //------------------------------------------------------------------------------
 // Declarations
@@ -93,8 +102,13 @@ var
    FBSDSendEmail: TFBSDSendEmail;
 
 {$IFDEF DARWIN}
+<<<<<<< HEAD
    function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'libbsd_utilities.dylib';
    function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; StdCall; external 'libbsd_utilities.dylib';
+=======
+   function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'libbsd_utilities';
+   function SendMimeMail(From, ToStr, CcStr, BccStr, Subject, Body, Attach, SMTPStr : string): boolean; StdCall; external 'libbsd_utilities';
+>>>>>>> [20200626] Development Commit
 {$ENDIF}
 {$IFDEF LINUX}
    function  cmdlOptions(OptList : string; CmdLine, ParmStr : TStringList): integer; StdCall; external 'libbsd_utilities.so';
